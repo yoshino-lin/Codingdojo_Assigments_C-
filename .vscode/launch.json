@@ -10,9 +10,9 @@
             "request": "launch",
             "preLaunchTask": "build",
             // If you have changed target frameworks, make sure to update the program path.
-            "program": "${workspaceFolder}/FirstCSharp/bin/Debug/netcoreapp2.2/FirstCSharp.dll",
+            "program": "${workspaceFolder}/Collections_Practice/bin/Debug/netcoreapp2.2/Collections_Practice.dll",
             "args": [],
-            "cwd": "${workspaceFolder}/FirstCSharp",
+            "cwd": "${workspaceFolder}/Collections_Practice",
             // For more information about the 'console' field, see https://aka.ms/VSCode-CS-LaunchJson-Console
             "console": "internalConsole",
             "stopAtEntry": false

@@ -7,7 +7,7 @@
             "type": "process",
             "args": [
                 "build",
-                "${workspaceFolder}/FirstCSharp/FirstCSharp.csproj",
+                "${workspaceFolder}/Collections_Practice/Collections_Practice.csproj",
                 "/property:GenerateFullPaths=true",
                 "/consoleloggerparameters:NoSummary"
             ],
@@ -19,7 +19,7 @@
             "type": "process",
             "args": [
                 "publish",
-                "${workspaceFolder}/FirstCSharp/FirstCSharp.csproj",
+                "${workspaceFolder}/Collections_Practice/Collections_Practice.csproj",
                 "/property:GenerateFullPaths=true",
                 "/consoleloggerparameters:NoSummary"
             ],
@@ -32,7 +32,7 @@
             "args": [
                 "watch",
                 "run",
-                "${workspaceFolder}/FirstCSharp/FirstCSharp.csproj",
+                "${workspaceFolder}/Collections_Practice/Collections_Practice.csproj",
                 "/property:GenerateFullPaths=true",
                 "/consoleloggerparameters:NoSummary"
             ],
