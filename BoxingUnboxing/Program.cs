@@ -24,7 +24,7 @@ namespace BoxingUnboxing
                     Console.WriteLine("Boolean:"+boxes[i]);
                 }
             }
-            Console.WriteLine("Sum: "+sum);
+            Console.WriteLine($"Sum: {sum}");
         }
     }
 }
