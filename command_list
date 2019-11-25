@@ -1,1 +1,2 @@
 dotnet new console -o 
+using System.Collections.Generic;
