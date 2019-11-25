@@ -1,0 +1,11 @@
+C:\Users\Administrator\Documents\GitHub\Codingdojo_Assigments_C_Sharp\MultiplicationTable\obj\Debug\netcoreapp2.2\MultiplicationTable.csprojAssemblyReference.cache
+C:\Users\Administrator\Documents\GitHub\Codingdojo_Assigments_C_Sharp\MultiplicationTable\obj\Debug\netcoreapp2.2\MultiplicationTable.csproj.CoreCompileInputs.cache
+C:\Users\Administrator\Documents\GitHub\Codingdojo_Assigments_C_Sharp\MultiplicationTable\obj\Debug\netcoreapp2.2\MultiplicationTable.AssemblyInfoInputs.cache
+C:\Users\Administrator\Documents\GitHub\Codingdojo_Assigments_C_Sharp\MultiplicationTable\obj\Debug\netcoreapp2.2\MultiplicationTable.AssemblyInfo.cs
+C:\Users\Administrator\Documents\GitHub\Codingdojo_Assigments_C_Sharp\MultiplicationTable\bin\Debug\netcoreapp2.2\MultiplicationTable.deps.json
+C:\Users\Administrator\Documents\GitHub\Codingdojo_Assigments_C_Sharp\MultiplicationTable\bin\Debug\netcoreapp2.2\MultiplicationTable.runtimeconfig.json
+C:\Users\Administrator\Documents\GitHub\Codingdojo_Assigments_C_Sharp\MultiplicationTable\bin\Debug\netcoreapp2.2\MultiplicationTable.runtimeconfig.dev.json
+C:\Users\Administrator\Documents\GitHub\Codingdojo_Assigments_C_Sharp\MultiplicationTable\bin\Debug\netcoreapp2.2\MultiplicationTable.dll
+C:\Users\Administrator\Documents\GitHub\Codingdojo_Assigments_C_Sharp\MultiplicationTable\bin\Debug\netcoreapp2.2\MultiplicationTable.pdb
+C:\Users\Administrator\Documents\GitHub\Codingdojo_Assigments_C_Sharp\MultiplicationTable\obj\Debug\netcoreapp2.2\MultiplicationTable.dll
+C:\Users\Administrator\Documents\GitHub\Codingdojo_Assigments_C_Sharp\MultiplicationTable\obj\Debug\netcoreapp2.2\MultiplicationTable.pdb
