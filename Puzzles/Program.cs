@@ -65,6 +65,9 @@ namespace Puzzles
                 name[i] = name[new_idx];
                 name[new_idx] = temp;
             }
+            for(int i=0;i<name.Count;i++){
+                if(name[i].<)
+            }
             return name;
         }
         
