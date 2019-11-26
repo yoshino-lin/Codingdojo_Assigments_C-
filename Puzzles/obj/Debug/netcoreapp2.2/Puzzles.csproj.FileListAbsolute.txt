@@ -1,0 +1,11 @@
+C:\Users\Administrator\Documents\GitHub\Codingdojo_Assigments_C_Sharp\Puzzles\obj\Debug\netcoreapp2.2\Puzzles.csprojAssemblyReference.cache
+C:\Users\Administrator\Documents\GitHub\Codingdojo_Assigments_C_Sharp\Puzzles\obj\Debug\netcoreapp2.2\Puzzles.csproj.CoreCompileInputs.cache
+C:\Users\Administrator\Documents\GitHub\Codingdojo_Assigments_C_Sharp\Puzzles\obj\Debug\netcoreapp2.2\Puzzles.AssemblyInfoInputs.cache
+C:\Users\Administrator\Documents\GitHub\Codingdojo_Assigments_C_Sharp\Puzzles\obj\Debug\netcoreapp2.2\Puzzles.AssemblyInfo.cs
+C:\Users\Administrator\Documents\GitHub\Codingdojo_Assigments_C_Sharp\Puzzles\bin\Debug\netcoreapp2.2\Puzzles.deps.json
+C:\Users\Administrator\Documents\GitHub\Codingdojo_Assigments_C_Sharp\Puzzles\bin\Debug\netcoreapp2.2\Puzzles.runtimeconfig.json
+C:\Users\Administrator\Documents\GitHub\Codingdojo_Assigments_C_Sharp\Puzzles\bin\Debug\netcoreapp2.2\Puzzles.runtimeconfig.dev.json
+C:\Users\Administrator\Documents\GitHub\Codingdojo_Assigments_C_Sharp\Puzzles\bin\Debug\netcoreapp2.2\Puzzles.dll
+C:\Users\Administrator\Documents\GitHub\Codingdojo_Assigments_C_Sharp\Puzzles\bin\Debug\netcoreapp2.2\Puzzles.pdb
+C:\Users\Administrator\Documents\GitHub\Codingdojo_Assigments_C_Sharp\Puzzles\obj\Debug\netcoreapp2.2\Puzzles.dll
+C:\Users\Administrator\Documents\GitHub\Codingdojo_Assigments_C_Sharp\Puzzles\obj\Debug\netcoreapp2.2\Puzzles.pdb
