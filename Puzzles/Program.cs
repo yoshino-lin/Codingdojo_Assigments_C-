@@ -52,8 +52,8 @@ namespace Puzzles
             }
             return (float)head_times/num;
         }
-        public static List<object> Names(){
-            List<object> name = new List<object>();
+        public static List<string> Names(){
+            List<string> name = new List<string>();
             name.Add("Todd");
             name.Add("Tiffany");
             name.Add("Charlie");
@@ -61,12 +61,14 @@ namespace Puzzles
             name.Add("Sydney");
             for(int i=0;i<name.Count;i++){
                 int new_idx = rand.Next(0,name.Count);
-                string temp = (string)name[i];
+                string temp = name[i];
                 name[i] = name[new_idx];
                 name[new_idx] = temp;
             }
             for(int i=0;i<name.Count;i++){
-                if(name[i].<)
+                if(name[i].Length<5){
+                    name.Remove(name[i]);
+                }
             }
             return name;
         }
