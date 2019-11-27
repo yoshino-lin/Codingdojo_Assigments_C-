@@ -1,0 +1,14 @@
+C:\Users\Administrator\Documents\GitHub\Codingdojo_Assigments_C_Sharp\ASP.NET_Core\PortfolioI\obj\Debug\netcoreapp2.2\PortfolioI.csprojAssemblyReference.cache
+C:\Users\Administrator\Documents\GitHub\Codingdojo_Assigments_C_Sharp\ASP.NET_Core\PortfolioI\obj\Debug\netcoreapp2.2\PortfolioI.csproj.CoreCompileInputs.cache
+C:\Users\Administrator\Documents\GitHub\Codingdojo_Assigments_C_Sharp\ASP.NET_Core\PortfolioI\obj\Debug\netcoreapp2.2\PortfolioI.RazorAssemblyInfo.cache
+C:\Users\Administrator\Documents\GitHub\Codingdojo_Assigments_C_Sharp\ASP.NET_Core\PortfolioI\obj\Debug\netcoreapp2.2\PortfolioI.RazorAssemblyInfo.cs
+C:\Users\Administrator\Documents\GitHub\Codingdojo_Assigments_C_Sharp\ASP.NET_Core\PortfolioI\obj\Debug\netcoreapp2.2\PortfolioI.AssemblyInfoInputs.cache
+C:\Users\Administrator\Documents\GitHub\Codingdojo_Assigments_C_Sharp\ASP.NET_Core\PortfolioI\obj\Debug\netcoreapp2.2\PortfolioI.AssemblyInfo.cs
+C:\Users\Administrator\Documents\GitHub\Codingdojo_Assigments_C_Sharp\ASP.NET_Core\PortfolioI\obj\Debug\netcoreapp2.2\PortfolioI.dll
+C:\Users\Administrator\Documents\GitHub\Codingdojo_Assigments_C_Sharp\ASP.NET_Core\PortfolioI\obj\Debug\netcoreapp2.2\PortfolioI.pdb
+C:\Users\Administrator\Documents\GitHub\Codingdojo_Assigments_C_Sharp\ASP.NET_Core\PortfolioI\bin\Debug\netcoreapp2.2\PortfolioI.deps.json
+C:\Users\Administrator\Documents\GitHub\Codingdojo_Assigments_C_Sharp\ASP.NET_Core\PortfolioI\bin\Debug\netcoreapp2.2\PortfolioI.runtimeconfig.json
+C:\Users\Administrator\Documents\GitHub\Codingdojo_Assigments_C_Sharp\ASP.NET_Core\PortfolioI\bin\Debug\netcoreapp2.2\PortfolioI.runtimeconfig.dev.json
+C:\Users\Administrator\Documents\GitHub\Codingdojo_Assigments_C_Sharp\ASP.NET_Core\PortfolioI\bin\Debug\netcoreapp2.2\PortfolioI.dll
+C:\Users\Administrator\Documents\GitHub\Codingdojo_Assigments_C_Sharp\ASP.NET_Core\PortfolioI\bin\Debug\netcoreapp2.2\PortfolioI.pdb
+C:\Users\Administrator\Documents\GitHub\Codingdojo_Assigments_C_Sharp\ASP.NET_Core\PortfolioI\obj\Debug\netcoreapp2.2\PortfolioI.RazorTargetAssemblyInfo.cache
