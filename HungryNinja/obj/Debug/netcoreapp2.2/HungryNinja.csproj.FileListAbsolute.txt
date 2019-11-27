@@ -1,0 +1,11 @@
+C:\Users\Administrator\Documents\GitHub\Codingdojo_Assigments_C_Sharp\HungryNinja\bin\Debug\netcoreapp2.2\HungryNinja.deps.json
+C:\Users\Administrator\Documents\GitHub\Codingdojo_Assigments_C_Sharp\HungryNinja\bin\Debug\netcoreapp2.2\HungryNinja.runtimeconfig.json
+C:\Users\Administrator\Documents\GitHub\Codingdojo_Assigments_C_Sharp\HungryNinja\bin\Debug\netcoreapp2.2\HungryNinja.runtimeconfig.dev.json
+C:\Users\Administrator\Documents\GitHub\Codingdojo_Assigments_C_Sharp\HungryNinja\bin\Debug\netcoreapp2.2\HungryNinja.dll
+C:\Users\Administrator\Documents\GitHub\Codingdojo_Assigments_C_Sharp\HungryNinja\bin\Debug\netcoreapp2.2\HungryNinja.pdb
+C:\Users\Administrator\Documents\GitHub\Codingdojo_Assigments_C_Sharp\HungryNinja\obj\Debug\netcoreapp2.2\HungryNinja.csprojAssemblyReference.cache
+C:\Users\Administrator\Documents\GitHub\Codingdojo_Assigments_C_Sharp\HungryNinja\obj\Debug\netcoreapp2.2\HungryNinja.csproj.CoreCompileInputs.cache
+C:\Users\Administrator\Documents\GitHub\Codingdojo_Assigments_C_Sharp\HungryNinja\obj\Debug\netcoreapp2.2\HungryNinja.AssemblyInfoInputs.cache
+C:\Users\Administrator\Documents\GitHub\Codingdojo_Assigments_C_Sharp\HungryNinja\obj\Debug\netcoreapp2.2\HungryNinja.AssemblyInfo.cs
+C:\Users\Administrator\Documents\GitHub\Codingdojo_Assigments_C_Sharp\HungryNinja\obj\Debug\netcoreapp2.2\HungryNinja.dll
+C:\Users\Administrator\Documents\GitHub\Codingdojo_Assigments_C_Sharp\HungryNinja\obj\Debug\netcoreapp2.2\HungryNinja.pdb
