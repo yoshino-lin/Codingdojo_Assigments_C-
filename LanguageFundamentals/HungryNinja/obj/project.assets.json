@@ -692,11 +692,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Administrator\\Documents\\GitHub\\Codingdojo_Assigments_C_Sharp\\HungryNinja\\HungryNinja.csproj",
+      "projectUniqueName": "c:\\Users\\Administrator\\Documents\\GitHub\\Codingdojo_Assigments_C_Sharp\\LanguageFundamentals\\HungryNinja\\HungryNinja.csproj",
       "projectName": "HungryNinja",
-      "projectPath": "C:\\Users\\Administrator\\Documents\\GitHub\\Codingdojo_Assigments_C_Sharp\\HungryNinja\\HungryNinja.csproj",
+      "projectPath": "c:\\Users\\Administrator\\Documents\\GitHub\\Codingdojo_Assigments_C_Sharp\\LanguageFundamentals\\HungryNinja\\HungryNinja.csproj",
       "packagesPath": "C:\\Users\\Administrator\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Administrator\\Documents\\GitHub\\Codingdojo_Assigments_C_Sharp\\HungryNinja\\obj\\",
+      "outputPath": "c:\\Users\\Administrator\\Documents\\GitHub\\Codingdojo_Assigments_C_Sharp\\LanguageFundamentals\\HungryNinja\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

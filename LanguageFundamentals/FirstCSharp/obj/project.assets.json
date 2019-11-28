@@ -692,11 +692,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Administrator\\Documents\\GitHub\\Codingdojo_Assigments_C_Sharp\\FirstCSharp\\FirstCSharp.csproj",
+      "projectUniqueName": "c:\\Users\\Administrator\\Documents\\GitHub\\Codingdojo_Assigments_C_Sharp\\LanguageFundamentals\\FirstCSharp\\FirstCSharp.csproj",
       "projectName": "FirstCSharp",
-      "projectPath": "C:\\Users\\Administrator\\Documents\\GitHub\\Codingdojo_Assigments_C_Sharp\\FirstCSharp\\FirstCSharp.csproj",
+      "projectPath": "c:\\Users\\Administrator\\Documents\\GitHub\\Codingdojo_Assigments_C_Sharp\\LanguageFundamentals\\FirstCSharp\\FirstCSharp.csproj",
       "packagesPath": "C:\\Users\\Administrator\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Administrator\\Documents\\GitHub\\Codingdojo_Assigments_C_Sharp\\FirstCSharp\\obj\\",
+      "outputPath": "c:\\Users\\Administrator\\Documents\\GitHub\\Codingdojo_Assigments_C_Sharp\\LanguageFundamentals\\FirstCSharp\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

@@ -12077,11 +12077,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Administrator\\Documents\\GitHub\\Codingdojo_Assigments_C_Sharp\\ASP.NET_Core\\PortfolioI\\PortfolioII\\PortfolioII.csproj",
+      "projectUniqueName": "c:\\Users\\Administrator\\Documents\\GitHub\\Codingdojo_Assigments_C_Sharp\\ASP.NET_Core\\PortfolioII\\PortfolioII.csproj",
       "projectName": "PortfolioII",
-      "projectPath": "C:\\Users\\Administrator\\Documents\\GitHub\\Codingdojo_Assigments_C_Sharp\\ASP.NET_Core\\PortfolioI\\PortfolioII\\PortfolioII.csproj",
+      "projectPath": "c:\\Users\\Administrator\\Documents\\GitHub\\Codingdojo_Assigments_C_Sharp\\ASP.NET_Core\\PortfolioII\\PortfolioII.csproj",
       "packagesPath": "C:\\Users\\Administrator\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Administrator\\Documents\\GitHub\\Codingdojo_Assigments_C_Sharp\\ASP.NET_Core\\PortfolioI\\PortfolioII\\obj\\",
+      "outputPath": "c:\\Users\\Administrator\\Documents\\GitHub\\Codingdojo_Assigments_C_Sharp\\ASP.NET_Core\\PortfolioII\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

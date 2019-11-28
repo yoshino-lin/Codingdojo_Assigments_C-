@@ -692,11 +692,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Administrator\\Documents\\GitHub\\Codingdojo_Assigments_C_Sharp\\Basic13\\Basic13.csproj",
+      "projectUniqueName": "c:\\Users\\Administrator\\Documents\\GitHub\\Codingdojo_Assigments_C_Sharp\\LanguageFundamentals\\Basic13\\Basic13.csproj",
       "projectName": "Basic13",
-      "projectPath": "C:\\Users\\Administrator\\Documents\\GitHub\\Codingdojo_Assigments_C_Sharp\\Basic13\\Basic13.csproj",
+      "projectPath": "c:\\Users\\Administrator\\Documents\\GitHub\\Codingdojo_Assigments_C_Sharp\\LanguageFundamentals\\Basic13\\Basic13.csproj",
       "packagesPath": "C:\\Users\\Administrator\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Administrator\\Documents\\GitHub\\Codingdojo_Assigments_C_Sharp\\Basic13\\obj\\",
+      "outputPath": "c:\\Users\\Administrator\\Documents\\GitHub\\Codingdojo_Assigments_C_Sharp\\LanguageFundamentals\\Basic13\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

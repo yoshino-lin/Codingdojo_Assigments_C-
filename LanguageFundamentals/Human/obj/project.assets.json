@@ -692,11 +692,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Administrator\\Documents\\GitHub\\Codingdojo_Assigments_C_Sharp\\Human\\Human.csproj",
+      "projectUniqueName": "c:\\Users\\Administrator\\Documents\\GitHub\\Codingdojo_Assigments_C_Sharp\\LanguageFundamentals\\Human\\Human.csproj",
       "projectName": "Human",
-      "projectPath": "C:\\Users\\Administrator\\Documents\\GitHub\\Codingdojo_Assigments_C_Sharp\\Human\\Human.csproj",
+      "projectPath": "c:\\Users\\Administrator\\Documents\\GitHub\\Codingdojo_Assigments_C_Sharp\\LanguageFundamentals\\Human\\Human.csproj",
       "packagesPath": "C:\\Users\\Administrator\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Administrator\\Documents\\GitHub\\Codingdojo_Assigments_C_Sharp\\Human\\obj\\",
+      "outputPath": "c:\\Users\\Administrator\\Documents\\GitHub\\Codingdojo_Assigments_C_Sharp\\LanguageFundamentals\\Human\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
