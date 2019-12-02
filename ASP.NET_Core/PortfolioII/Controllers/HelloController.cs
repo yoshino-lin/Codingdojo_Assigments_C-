@@ -6,27 +6,36 @@ namespace PortfolioII.Controllers     //be sure to use your own project's namesp
     {
         [HttpGet]
         [Route("")]
-        public ViewResult Index()
-        {
-            // will attempt to serve 
-                // Views/Hello/Index.cshtml
-            // or if that file isn't there:
-                // Views/Shared/Index.cshtml
-            return View();
+        public ViewResult Index(){
+            return View("Index");
+        }
+        
+        [HttpGet]
+        [Route("projects")]
+        public ViewResult Projects(){
+            string[] img_list = {
+                "http://www.weipet.cn/common/images/pic/a43.jpg",
+                "http://www.xungou66.com/wp-content/uploads/2019/23/374.jpg",
+                "https://as.chdev.tw/web/article/b/0/4/b1814323-0790-4b70-a3b1-6cbc87d37d1f/A0951614.jpg"
+            };
+            return View("Projects",img_list);
+            
         }
         [HttpGet]
-        [Route("info")]
-        public ViewResult Info()
-        {
-            // Same logic for serving a view applies
-            // if we provide the the exact view name
-            return View("Info");
+        [Route("contact")]
+        public ViewResult Contact(){
+            return View("Contact");
         }
+
         // You may also serve the same view twice from additional actions
         [HttpGet("elsewhere")]
-        public ViewResult Elsewhere()
-        {
-            return View("Index");
+        public JsonResult Elsewhere(){
+            var AnonObject = new {
+                FirstName = "Raz",
+                LastName = "Aquato",
+                Age = 10
+            };
+            return Json(AnonObject);
         }
     }
 }

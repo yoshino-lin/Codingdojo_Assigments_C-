@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset='utf-8'>
+        <title>Projects</title>
+        <link rel="stylesheet" href="~/css/style.css"/>
+    </head>
+    <body>
+        <h1> <a href="/">Home</a> | Projects | <a href="/contact">Contact</a></h1>
+        <h1>Here are some projects of mine!</h1>
+        <div class="comment">
+            @foreach(string dog_img in Model){
+                <img src=@dog_img><p>Cool</p><p>I like it</p><br />
+            }
+        </div>
+        <h1>@ViewBag.Example</h1>
+    </body>
+</html>
