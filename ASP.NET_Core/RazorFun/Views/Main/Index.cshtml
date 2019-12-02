@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset='utf-8'>
+        <title>Index</title>
+        <link rel="stylesheet" href="~/css/style.css"/>
+    </head>
+    <body>
+        <h1>Here are some delicious foods!</h1>
+        @{  
+            var foodList = new List<string>{
+                "Apple Pie",
+                "Burritos",
+                "Clams Casino",
+                "Donuts"
+            };
+            foreach(string food in foodList){
+                if(food.Substring(0,1) =="c" || food.Substring(0,1) =="C"){
+                    <p class="red">@food</p>
+                }else{
+                    <p>@food</p>
+                }
+            }
+        }
+    </body>
+</html>
