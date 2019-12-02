@@ -6,7 +6,19 @@ namespace WizardNinjaSamurai
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello!");
+            Human me = new Human("me");
+            Ninja tokyo = new Ninja("tokyo");
+            Wizard pine = new Wizard("pine");
+            Samurai king = new Samurai("king");
+            me.Attack(tokyo);
+            System.Console.WriteLine($"tokyo's health: {tokyo.Health}");
+            pine.Heal(tokyo);
+            System.Console.WriteLine($"tokyo's health: {tokyo.Health}");
+            tokyo.Steal(king);
+            System.Console.WriteLine($"tokyo's health: {tokyo.Health}");
+            System.Console.WriteLine($"king's health: {king.Health}");
+            king.Meditate();
+            System.Console.WriteLine($"king's health: {king.Health}");
         }
     }
     class Human{
@@ -14,7 +26,8 @@ namespace WizardNinjaSamurai
         public int Strength;
         public int Intelligence;
         public int Dexterity;
-        public int health;
+        protected int health;
+        
         public int Health{
             get { return health; }
         }
@@ -33,11 +46,20 @@ namespace WizardNinjaSamurai
             health = hp;
         }
         // Build Attack method
-        public virtual void Attack(Human target){
+        public virtual int Attack(Human target){
             int dmg = Strength * 3;
             target.health -= dmg;
-            health += dmg;
             Console.WriteLine($"{Name} attacked {target.Name} for {dmg} damage!");
+            return target.health;
+        }
+        public int decreaseHealth(int dmg){
+            health -= dmg;
+            return health;
+        }
+
+        public int increaseHealth(int hp_amount){
+            health += hp_amount;
+            return health;
         }
     }
     class Wizard : Human{
@@ -45,14 +67,14 @@ namespace WizardNinjaSamurai
             health=50;
             Intelligence=175;
         }
-        public override void Attack(Human target){
+        public override int Attack(Human target){
             int dmg = Intelligence * 5;
-            target.health -= dmg;
             health += dmg;
             Console.WriteLine($"{Name} attacked {target.Name} for {dmg} damage!");
+            return target.decreaseHealth(dmg);
         }
-        public void heal(Human target){
-            target.health += Intelligence * 10;
+        public int Heal(Human target){
+            return target.increaseHealth(Intelligence * 10);
         }
     }
     class Ninja : Human{
@@ -60,33 +82,36 @@ namespace WizardNinjaSamurai
         public Ninja(string name) : base(name){
             Dexterity = 200;
         }
-        public override void Attack(Human target){
+        public override int Attack(Human target){
             int dmg = Dexterity * 5;
             int chance = rand.Next(1,101);
             if(chance <=20){
                 dmg+=10;
             }
-            target.health -= dmg;
             health += dmg;
             Console.WriteLine($"{Name} attacked {target.Name} for {dmg} damage!");
+            return target.decreaseHealth(dmg);
         }
-        public void Steal(Human target){
-            target.health-=5;
+        public int Steal(Human target){
             health+=5;
+            return target.decreaseHealth(5);
         }
     }
     class Samurai : Human{
         public Samurai(string name) : base(name){
             health=200;
         }
-        public override void Attack(Human target){
+        public override int Attack(Human target){
             base.Attack(target);
-            if(target.health<50){
-                target.health=0;
+            if(target.Health<50){
+                target.decreaseHealth(target.Health);
+                Console.WriteLine($"Due to Samurai's skill, {Name} have 0 hp remaining!");
             }
+            return target.Health;
         }
-        public void Meditate(){
+        public int Meditate(){
             health=200;
+            return health;
         }
     }
 }
