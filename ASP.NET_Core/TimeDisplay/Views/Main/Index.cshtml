@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset='utf-8'>
+        <title>Index</title>
+        <link rel="stylesheet" href="~/css/style.css"/>
+    </head>
+    <body>
+        <h1>The current time and date:</h1>
+        @{  
+            DateTime CurrentTime = DateTime.Now;
+            <p>@CurrentTime</p>
+        }
+    </body>
+</html>
