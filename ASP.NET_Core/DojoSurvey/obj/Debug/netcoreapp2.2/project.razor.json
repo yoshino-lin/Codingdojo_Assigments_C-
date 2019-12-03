@@ -1,5 +1,5 @@
 {
-  "FilePath": "c:\\Users\\Administrator\\Documents\\GitHub\\Codingdojo_Assigments_C_Sharp\\ASP.NET_Core\\PortfolioI\\PortfolioI.csproj",
+  "FilePath": "c:\\Users\\Administrator\\Documents\\GitHub\\Codingdojo_Assigments_C_Sharp\\ASP.NET_Core\\DojoSurvey\\DojoSurvey.csproj",
   "Configuration": {
     "ConfigurationName": "MVC-2.1",
     "LanguageVersion": "2.1",
@@ -2958,7 +2958,18 @@
     ],
     "CSharpLanguageVersion": 703
   },
-  "RootNamespace": "PortfolioI",
-  "Documents": [],
+  "RootNamespace": "DojoSurvey",
+  "Documents": [
+    {
+      "FilePath": "c:\\Users\\Administrator\\Documents\\GitHub\\Codingdojo_Assigments_C_Sharp\\ASP.NET_Core\\DojoSurvey\\Views\\Main\\Index.cshtml",
+      "TargetPath": "Views\\Main\\Index.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\Administrator\\Documents\\GitHub\\Codingdojo_Assigments_C_Sharp\\ASP.NET_Core\\DojoSurvey\\Views\\Main\\Result.cshtml",
+      "TargetPath": "Views\\Main\\Result.cshtml",
+      "FileKind": "mvc"
+    }
+  ],
   "SerializationFormat": "0.2"
 }

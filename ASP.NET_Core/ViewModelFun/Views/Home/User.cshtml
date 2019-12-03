@@ -1,11 +1,12 @@
-﻿<!DOCTYPE html>
+﻿@using Person.Models;
+<!DOCTYPE html>
 <html>
     <head>
         <meta charset='utf-8'>
         <link rel="stylesheet" href="~/css/style.css"/>
     </head>
     <body>
-        <h1>Here is a Message!</h1>
-        <p id="message">@Model</p>
+        <h1>Here is a users!</h1>
+        <p>@Model.FirstName @Model.LastName</p>
     </body>
 </html>

@@ -5,7 +5,9 @@
         <link rel="stylesheet" href="~/css/style.css"/>
     </head>
     <body>
-        <h1>Here is a Message!</h1>
-        <p id="message">@Model</p>
+        <h1>Here are some numbers!</h1>
+        @foreach(int num in Model){
+            <p>@num</p>
+        }
     </body>
 </html>

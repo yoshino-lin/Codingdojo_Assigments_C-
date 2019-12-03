@@ -1,0 +1,14 @@
+﻿@using Person.Models;
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset='utf-8'>
+        <link rel="stylesheet" href="~/css/style.css"/>
+    </head>
+    <body>
+        <h1>Here are some users!</h1>
+        @foreach(User name in Model){
+            <p>@name.FirstName @name.LastName</p>
+        }
+    </body>
+</html>
