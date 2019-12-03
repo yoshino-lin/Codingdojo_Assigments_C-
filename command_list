@@ -4,3 +4,4 @@ List<object> boxes = new List<object>();
 public static Random rand = new Random();
 dotnet new web --no-https -o 
 dotnet watch run
+dotnet new mvc
