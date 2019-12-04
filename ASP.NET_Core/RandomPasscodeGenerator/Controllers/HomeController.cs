@@ -38,7 +38,7 @@ namespace RandomPasscodeGenerator.Controllers
             ViewBag.Code = code;
             return View("Index");
         }
-
+        
         [Route("")]
         public IActionResult Generate(){
             int? time = HttpContext.Session.GetInt32("count");
