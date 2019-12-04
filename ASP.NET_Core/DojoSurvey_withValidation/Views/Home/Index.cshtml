@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset='utf-8'>
+        <title>Index</title>
+        <link rel="stylesheet" href="~/css/style.css"/>
+    </head>
+    <body> 
+        @model User
+        <form asp-action="Submission" asp-controller="Home" method="post">
+            <span asp-validation-for="Name"></span><br>
+            <label asp-for="Name"></label>
+            <input asp-for="Name"><br>
+
+            <span asp-validation-for="Location"></span><br>
+            <label asp-for="Location"></label>
+            <select asp-for="Location">
+                <option value ="San Jose">San Jose</option>
+                <option value ="Seatle">Seatle</option>
+                <option value="NewYork">NewYork</option>
+                <option value="Renton">Renton</option>
+            </select><br>
+            
+            <span asp-validation-for="Language"></span><br>
+            <label asp-for="Language"></label>
+            <select asp-for="Language">
+                <option value ="C#">C#</option>
+                <option value ="Python">Python</option>
+                <option value="Java">Java</option>
+                <option value="Kotlin">Kotlin</option>
+            </select><br>
+
+            <span asp-validation-for="Comment"></span><br>
+            <label asp-for="Comment"></label>
+            <input asp-for="Comment"><br>
+
+            <input value="Submit" type="submit">  
+        </form>
+    </body>
+</html>
