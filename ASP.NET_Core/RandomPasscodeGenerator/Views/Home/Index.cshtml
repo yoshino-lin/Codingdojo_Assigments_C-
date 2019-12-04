@@ -1,1 +1,6 @@
-﻿
+﻿<h2>Random passcode (passcode #@ViewBag.Count)</h2>
+<h1>@ViewBag.Code</h1>
+
+<form asp-action="Generate" asp-controller="Home" method="post">
+    <input value="Generate" type="submit">  
+</form>

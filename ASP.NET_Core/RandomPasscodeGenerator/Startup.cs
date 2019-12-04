@@ -24,6 +24,7 @@ namespace RandomPasscodeGenerator
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddSession();
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
         }
 
@@ -40,11 +41,8 @@ namespace RandomPasscodeGenerator
                 // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
             }
-
-
             app.UseStaticFiles();
-
-
+            app.UseSession();
             app.UseMvc(routes =>
             {
                 routes.MapRoute(
