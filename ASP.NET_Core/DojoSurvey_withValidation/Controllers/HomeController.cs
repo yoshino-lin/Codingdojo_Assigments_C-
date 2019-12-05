@@ -18,12 +18,9 @@ namespace DojoSurvey_withValidation.Controllers
         }
         [HttpPost("result")]
         public IActionResult Submission(User yourSurvey){
-            if(ModelState.IsValid)
-            {   
+            if(ModelState.IsValid){   
                 return View("Result",yourSurvey);
-            }
-            else
-            {
+            }else{
                 return View("Index");
             }
         }
