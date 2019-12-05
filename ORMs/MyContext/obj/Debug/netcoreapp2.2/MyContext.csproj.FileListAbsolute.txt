@@ -1,0 +1,6 @@
+C:\Users\Administrator\Documents\GitHub\Codingdojo_Assigments_C_Sharp\ORMs\MyContext\obj\Debug\netcoreapp2.2\MyContext.csprojAssemblyReference.cache
+C:\Users\Administrator\Documents\GitHub\Codingdojo_Assigments_C_Sharp\ORMs\MyContext\obj\Debug\netcoreapp2.2\MyContext.csproj.CoreCompileInputs.cache
+C:\Users\Administrator\Documents\GitHub\Codingdojo_Assigments_C_Sharp\ORMs\MyContext\obj\Debug\netcoreapp2.2\MyContext.RazorAssemblyInfo.cache
+C:\Users\Administrator\Documents\GitHub\Codingdojo_Assigments_C_Sharp\ORMs\MyContext\obj\Debug\netcoreapp2.2\MyContext.RazorAssemblyInfo.cs
+C:\Users\Administrator\Documents\GitHub\Codingdojo_Assigments_C_Sharp\ORMs\MyContext\obj\Debug\netcoreapp2.2\MyContext.AssemblyInfoInputs.cache
+C:\Users\Administrator\Documents\GitHub\Codingdojo_Assigments_C_Sharp\ORMs\MyContext\obj\Debug\netcoreapp2.2\MyContext.AssemblyInfo.cs
