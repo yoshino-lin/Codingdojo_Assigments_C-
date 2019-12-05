@@ -9,7 +9,7 @@ using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using MyProject.Models;
+using CRUDelicious.Models;
 using Microsoft.EntityFrameworkCore;
 
 namespace CRUDelicious
@@ -26,8 +26,8 @@ namespace CRUDelicious
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            string mySqlConnection = "server=localhost;userid=root;password=root;port=3306;database=CRUDelicious;SslMode=None";
-            services.AddDbContext<MyContext>(options => options.UseMySql(mySqlConnection));
+            string mySqlConnection = "server=localhost;userid=root;password=root;port=3306;database=mydb;SslMode=None";
+            services.AddDbContext<MyContext>(options => options.UseMySql(Configuration["DBInfo:ConnectionString"]));
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
         }
 
