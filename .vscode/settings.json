@@ -5,11 +5,15 @@
         "aspnetcore",
         "hsts",
         "json",
+        "myd",
+        "mydb",
         "netstandard",
         "newtonsoft",
         "use"
     ],
     "cSpell.ignoreWords": [
-        "represeted"
+        "lconnect",
+        "represeted",
+        "userid"
     ]
 }

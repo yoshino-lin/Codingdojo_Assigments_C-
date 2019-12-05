@@ -1,0 +1,6 @@
+C:\Users\Administrator\Documents\GitHub\Codingdojo_Assigments_C_Sharp\ORMs\CRUDelicious\obj\Debug\netcoreapp2.2\CRUDelicious.csprojAssemblyReference.cache
+C:\Users\Administrator\Documents\GitHub\Codingdojo_Assigments_C_Sharp\ORMs\CRUDelicious\obj\Debug\netcoreapp2.2\CRUDelicious.csproj.CoreCompileInputs.cache
+C:\Users\Administrator\Documents\GitHub\Codingdojo_Assigments_C_Sharp\ORMs\CRUDelicious\obj\Debug\netcoreapp2.2\CRUDelicious.RazorAssemblyInfo.cache
+C:\Users\Administrator\Documents\GitHub\Codingdojo_Assigments_C_Sharp\ORMs\CRUDelicious\obj\Debug\netcoreapp2.2\CRUDelicious.RazorAssemblyInfo.cs
+C:\Users\Administrator\Documents\GitHub\Codingdojo_Assigments_C_Sharp\ORMs\CRUDelicious\obj\Debug\netcoreapp2.2\CRUDelicious.AssemblyInfoInputs.cache
+C:\Users\Administrator\Documents\GitHub\Codingdojo_Assigments_C_Sharp\ORMs\CRUDelicious\obj\Debug\netcoreapp2.2\CRUDelicious.AssemblyInfo.cs
