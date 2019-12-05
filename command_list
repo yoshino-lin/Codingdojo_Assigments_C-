@@ -4,4 +4,5 @@ List<object> boxes = new List<object>();
 public static Random rand = new Random();
 dotnet new web --no-https -o 
 dotnet watch run
-dotnet new mvc
+dotnet new mvc -o
+dotnet add package Pomelo.EntityFrameworkCore.MySql -v 2.2.0

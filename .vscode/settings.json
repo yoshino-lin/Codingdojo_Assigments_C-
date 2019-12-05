@@ -8,5 +8,8 @@
         "netstandard",
         "newtonsoft",
         "use"
+    ],
+    "cSpell.ignoreWords": [
+        "represeted"
     ]
 }
