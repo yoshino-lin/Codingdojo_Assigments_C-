@@ -56,7 +56,7 @@ namespace CRUDelicious.Controllers
             return View("Edit",the_dish);
         }
 
-        [HttpPost("edit/update/{UserId}")]
+        [HttpPost("update/{UserId}")]
         public IActionResult UpdateUser(int UserId,User yourSurvey)
         {
             User RetrievedUser = dbContext.Users.FirstOrDefault(user => user.UserId == UserId);

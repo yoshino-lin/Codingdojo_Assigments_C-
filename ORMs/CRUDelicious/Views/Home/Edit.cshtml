@@ -4,7 +4,7 @@
         <input value="Home" type="submit">  
     </form>
     @model User
-    <form action="update/@Model.UserId" method="post">
+    <form action="/update/@Model.UserId" method="post">
         <span asp-validation-for="Name"></span><br>
         <label asp-for="Name"></label>
         <input asp-for="Name" name="Name" value="@Model.Name"><br>
