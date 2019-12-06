@@ -9,7 +9,8 @@ using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using MyContext.Models;
+using MyProject.Models;
+using YourNamespace.Models;
 using Microsoft.EntityFrameworkCore;
 
 namespace CRUDelicious

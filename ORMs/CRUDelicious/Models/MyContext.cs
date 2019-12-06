@@ -1,5 +1,6 @@
-using Microsoft.EntityFrameworkCore; 
-namespace MyContext.Models
+using Microsoft.EntityFrameworkCore;
+using MyProject.Models;
+namespace YourNamespace.Models
 {
     public class MyContext : DbContext
     {

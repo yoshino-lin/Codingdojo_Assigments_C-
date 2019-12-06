@@ -1,8 +1,7 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
-}
-
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+﻿<div id="index_container">
+    <h1>Welcome to SRUDelicous</h1>
+    <p>Check out some recent dishes!</p>
+    <form asp-action="AddDish" asp-controller="Home" method="post">
+        <input value="Add a Dish" type="submit">  
+    </form>
 </div>

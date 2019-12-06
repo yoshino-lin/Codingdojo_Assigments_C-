@@ -6,7 +6,8 @@ namespace DojoSurvey_withValidation.Models
     public class User
     {
         [Required]
-        [MinLength(2)]        [Display(Name = "Your Name:")] 
+        [MinLength(2)]
+        [Display(Name = "Your Name:")] 
         public string Name { get; set; }
 
         [Required]
