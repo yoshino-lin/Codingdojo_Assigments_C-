@@ -7,3 +7,4 @@ dotnet watch run
 dotnet new mvc -o
 dotnet add package Pomelo.EntityFrameworkCore.MySql -v 2.2.0
 dotnet ef migrations add FirstMigration
+dotnet ef database update

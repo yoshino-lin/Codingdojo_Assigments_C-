@@ -1,5 +1,6 @@
 using System;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace LoginAndRegistration.Models{
     public class User{
@@ -7,31 +8,45 @@ namespace LoginAndRegistration.Models{
         public int UserId { get; set; }
 
         [Required]
-        [MaxLength(45)]
-        [Display(Name = "Chef's Name:")] 
-        public string Name { get; set; }
+        [MinLength(2)]
+        [Display(Name = "First Name:")] 
+        public string FirstName { get; set; }
 
         [Required]
-        [MaxLength(45)]
-        [Display(Name = "Name of Dish:")]
-        public string DishName { get; set; }
+        [MinLength(2)]
+        [Display(Name = "Last Name:")]
+        public string LastName { get; set; }
 
         [Required]
-        [Range(0,double.PositiveInfinity)]
-        [Display(Name = "# of Calories:")]
-        public int Calories { get; set; }
+        [EmailAddress]
+        [Display(Name = "Email:")]
+        public string Email { get; set; }
 
-
+        [DataType(DataType.Password)]
         [Required]
-        [Range(1,6)]
-        [Display(Name = "Tastiness:")]
-        public int Tastiness { get; set; }
+        [MinLength(8, ErrorMessage="Password must be 8 characters or longer!")]
+        [Display(Name = "Password:")]
+        public string Password {get;set;}
 
-        [Required]
-        [Display(Name = "Description:")]
-        public string Description { get; set; }
+        [NotMapped]
+        [Compare("Password")]
+        [DataType(DataType.Password)]
+        [Display(Name = "Confirm Password:")]
+        public string Confirm {get;set;}
 
         public DateTime CreatedAt {get;set;} = DateTime.Now;
         public DateTime UpdatedAt {get;set;} = DateTime.Now;
+    }
+    public class LoginUser{
+        // No other fields!
+        [Required]
+        [EmailAddress]
+        [Display(Name = "Email:")]
+        public string Email {get; set;}
+        
+        [Required]
+        [Display(Name = "Password:")]
+        [DataType(DataType.Password)]
+        public string Password { get; set; }
     }
 }

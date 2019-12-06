@@ -6,67 +6,87 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using LoginAndRegistration.Models;
 using Context.Models;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Http;
 
 namespace LoginAndRegistration.Controllers
 {
     public class HomeController : Controller{
         private MyContext dbContext;
         public HomeController(MyContext context){dbContext = context;}
-    
+
         [HttpGet("")]
         public IActionResult Index(){
-            List<User> AllUsers = dbContext.Users.ToList();
-            return View(AllUsers);
-        }
-
-        [HttpGet("new")]
-        public IActionResult AddDish(){
-            List<User> AllUsers = dbContext.Users.ToList();
-            return View("New");
-        }
-
-        [HttpGet("{UserId}")]
-        public IActionResult DisplayDish(int UserId){
-            User the_dish = dbContext.Users.FirstOrDefault(user => user.UserId == UserId);
-            return View("Display",the_dish);
-        }
-
-        [HttpPost("delete/{UserId}")]
-        public IActionResult DeleteDish(int UserId){
-            User RetrievedUser = dbContext.Users.SingleOrDefault(user => user.UserId == UserId);
-            dbContext.Users.Remove(RetrievedUser);
-            dbContext.SaveChanges();
-            return RedirectToAction("Index");
-        }
-
-        [HttpPost("edit/{UserId}")]
-        public IActionResult EditDish(int UserId){
-            User the_dish = dbContext.Users.FirstOrDefault(user => user.UserId == UserId);
-            return View("Edit",the_dish);
-        }
-
-        [HttpPost("update/{UserId}")]
-        public IActionResult UpdateUser(int UserId,User yourSurvey){
-            User RetrievedUser = dbContext.Users.FirstOrDefault(user => user.UserId == UserId);
-            RetrievedUser.Name = yourSurvey.Name;
-            RetrievedUser.DishName = yourSurvey.DishName;
-            RetrievedUser.Calories = yourSurvey.Calories;
-            RetrievedUser.Tastiness = yourSurvey.Tastiness;
-            RetrievedUser.Description = yourSurvey.Description;
-            RetrievedUser.UpdatedAt = DateTime.Now;
-            dbContext.SaveChanges();
-            User the_dish = dbContext.Users.FirstOrDefault(user => user.UserId == UserId);
-            return View("Display",the_dish);
-        }
-
-        public IActionResult Submission(User yourSurvey){
-            if(ModelState.IsValid){
-                dbContext.Add(yourSurvey);
-                dbContext.SaveChanges();
-                return RedirectToAction("Index");
+            if(HttpContext.Session.GetString("UserId")==null){
+                return View();
             }else{
-                return View("New");
+                return View("Success");
             }
+        }
+
+        [HttpPost("")]
+        public IActionResult Registration(User the_user){
+            if(ModelState.IsValid){
+                if(dbContext.Users.Any(u => u.Email == the_user.Email)){
+                    ModelState.AddModelError("Email", "Email already in use!");
+                    return View("Index");
+                }else{
+                    PasswordHasher<User> Hasher = new PasswordHasher<User>();
+                    the_user.Password = Hasher.HashPassword(the_user, the_user.Password);
+                    dbContext.Add(the_user);
+                    dbContext.SaveChanges();
+                    User this_user = dbContext.Users.FirstOrDefault(user => user.Email == the_user.Email);
+                    HttpContext.Session.SetInt32("UserId", this_user.UserId);
+                    return View("Success");
+                }
+            }else{
+                return View("Index");
+            }
+        }
+        [HttpGet("login")]
+        public IActionResult login(){
+            if(HttpContext.Session.GetString("UserId")==null){
+                return View("Login");
+            }else{
+                return View("Success");
+            }
+        }
+
+        [HttpPost("success")]
+        public IActionResult LoginCheck(LoginUser userSubmission){
+            if(ModelState.IsValid){
+                // If inital ModelState is valid, query for a user with provided email
+                var userInDb = dbContext.Users.FirstOrDefault(u => u.Email == userSubmission.Email);
+                // If no user exists with provided email
+                if(userInDb == null){
+                    // Add an error to ModelState and return to View!
+                    ModelState.AddModelError("Email", "Invalid Email");
+                    return View("Login");
+                }
+                
+                // Initialize hasher object
+                var hasher = new PasswordHasher<LoginUser>();
+                
+                // verify provided password against hash stored in db
+                var result = hasher.VerifyHashedPassword(userSubmission, userInDb.Password, userSubmission.Password);
+                
+                // result can be compared to 0 for failure
+                if(result == 0){
+                    ModelState.AddModelError("Password", "Password Incorrect!");
+                    return View("Login");
+                }else{
+                    HttpContext.Session.SetInt32("UserId", userInDb.UserId);
+                    return View("Success");
+                }
+            }else{
+                return View("Login");
+            }
+            
+        }
+        [HttpPost("logout")]
+        public IActionResult LogOut(LoginUser userSubmission){
+            HttpContext.Session.Clear();
+            return View("Login");
         }
     }
 }
