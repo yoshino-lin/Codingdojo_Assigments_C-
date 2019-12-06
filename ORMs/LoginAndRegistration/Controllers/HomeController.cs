@@ -4,45 +4,34 @@ using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using CRUDelicious.Models;
-using Context.Models;
-using Microsoft.EntityFrameworkCore;
+using LoginAndRegistration.Models;
 
-namespace CRUDelicious.Controllers
+namespace LoginAndRegistration.Controllers
 {
     public class HomeController : Controller{
         private MyContext dbContext;
-    
-        // here we can "inject" our context service into the constructor
-        public HomeController(MyContext context)
-        {
-            dbContext = context;
-        }
+        public HomeController(MyContext context){dbContext = context;}
     
         [HttpGet("")]
-        public IActionResult Index()
-        {
+        public IActionResult Index(){
             List<User> AllUsers = dbContext.Users.ToList();
             return View(AllUsers);
         }
 
         [HttpGet("new")]
-        public IActionResult AddDish()
-        {
+        public IActionResult AddDish(){
             List<User> AllUsers = dbContext.Users.ToList();
             return View("New");
         }
 
         [HttpGet("{UserId}")]
-        public IActionResult DisplayDish(int UserId)
-        {
+        public IActionResult DisplayDish(int UserId){
             User the_dish = dbContext.Users.FirstOrDefault(user => user.UserId == UserId);
             return View("Display",the_dish);
         }
 
         [HttpPost("delete/{UserId}")]
-        public IActionResult DeleteDish(int UserId)
-        {
+        public IActionResult DeleteDish(int UserId){
             User RetrievedUser = dbContext.Users.SingleOrDefault(user => user.UserId == UserId);
             dbContext.Users.Remove(RetrievedUser);
             dbContext.SaveChanges();
@@ -50,15 +39,13 @@ namespace CRUDelicious.Controllers
         }
 
         [HttpPost("edit/{UserId}")]
-        public IActionResult EditDish(int UserId)
-        {
+        public IActionResult EditDish(int UserId){
             User the_dish = dbContext.Users.FirstOrDefault(user => user.UserId == UserId);
             return View("Edit",the_dish);
         }
 
         [HttpPost("update/{UserId}")]
-        public IActionResult UpdateUser(int UserId,User yourSurvey)
-        {
+        public IActionResult UpdateUser(int UserId,User yourSurvey){
             User RetrievedUser = dbContext.Users.FirstOrDefault(user => user.UserId == UserId);
             RetrievedUser.Name = yourSurvey.Name;
             RetrievedUser.DishName = yourSurvey.DishName;

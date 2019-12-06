@@ -1,5 +1,5 @@
 using Microsoft.EntityFrameworkCore;
-using CRUDelicious.Models;
+using LoginAndRegistration.Models;
 namespace Context.Models
 {
     public class MyContext : DbContext
