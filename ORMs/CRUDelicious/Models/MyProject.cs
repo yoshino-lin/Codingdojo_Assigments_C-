@@ -1,11 +1,12 @@
 using System.ComponentModel.DataAnnotations;
 using System;
 
-namespace MyProject.Models
+namespace CRUDelicious.Models
 {
     public class User
     {
         [Key]
+        public int UserId { get; set; }
 
         [Required]
         [MaxLength(45)]
@@ -30,11 +31,8 @@ namespace MyProject.Models
 
         [Required]
         [Display(Name = "Description:")]
-        public int Tastiness { get; set; }
+        public string Description { get; set; }
 
-    
-        // We can provide some hardcoded default values like so:
-        public int UserId { get; set; }
         public DateTime CreatedAt {get;set;} = DateTime.Now;
         public DateTime UpdatedAt {get;set;} = DateTime.Now;
         // New User objects will these values assigned

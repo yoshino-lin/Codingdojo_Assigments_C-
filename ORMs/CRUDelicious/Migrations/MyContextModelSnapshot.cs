@@ -17,20 +17,27 @@ namespace CRUDelicious.Migrations
                 .HasAnnotation("ProductVersion", "2.2.4-servicing-10062")
                 .HasAnnotation("Relational:MaxIdentifierLength", 64);
 
-            modelBuilder.Entity("MyProject.Models.User", b =>
+            modelBuilder.Entity("CRUDelicious.Models.User", b =>
                 {
                     b.Property<int>("UserId")
                         .ValueGeneratedOnAdd();
 
+                    b.Property<int>("Calories");
+
                     b.Property<DateTime>("CreatedAt");
 
-                    b.Property<string>("Email");
+                    b.Property<string>("Description")
+                        .IsRequired();
 
-                    b.Property<string>("FirstName");
+                    b.Property<string>("DishName")
+                        .IsRequired()
+                        .HasMaxLength(45);
 
-                    b.Property<string>("LastName");
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasMaxLength(45);
 
-                    b.Property<string>("Password");
+                    b.Property<int>("Tastiness");
 
                     b.Property<DateTime>("UpdatedAt");
 

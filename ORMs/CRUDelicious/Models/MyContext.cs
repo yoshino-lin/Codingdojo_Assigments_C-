@@ -1,5 +1,5 @@
 using Microsoft.EntityFrameworkCore;
-using MyProject.Models;
+using CRUDelicious.Models;
 namespace YourNamespace.Models
 {
     public class MyContext : DbContext

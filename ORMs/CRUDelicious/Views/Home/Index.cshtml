@@ -1,7 +1,12 @@
 ﻿<div id="index_container">
     <h1>Welcome to SRUDelicous</h1>
     <p>Check out some recent dishes!</p>
-    <form asp-action="AddDish" asp-controller="Home" method="post">
-        <input value="Add a Dish" type="submit">  
+    <form asp-action="AddDish" asp-controller="Home" method="get">
+        <input value="Add a Dish" type="submit">
     </form>
+    @foreach(User Dish in Model){
+        <form action="@Dish.UserId" method="get">
+            <p><input value="@Dish.DishName" type="submit"> by @Dish.Name</p>
+        </form>
+    }
 </div>

@@ -1,0 +1,16 @@
+﻿<div id="display_container">
+    <form asp-action="Index" asp-controller="Home" method="get">
+        <input value="Home" type="submit">  
+    </form>
+    <h1>@Model.DishName</h1>
+    <h2>@Model.Name</h2>
+    <p>@Model.Description</p>
+    <p>Calories:@Model.Calories</p>
+    <p>Tastiness:@Model.Tastiness</p>
+    <form action="delete/@Model.UserId" method="post">
+        <input value="Delete" type="submit">
+    </form>
+    <form action="edit/@Model.UserId" method="post">
+        <input value="Edit" type="submit">
+    </form>
+</div>

@@ -9,7 +9,7 @@ using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using MyProject.Models;
+using CRUDelicious.Models;
 using YourNamespace.Models;
 using Microsoft.EntityFrameworkCore;
 

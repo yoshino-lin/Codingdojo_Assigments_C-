@@ -1,0 +1,34 @@
+﻿<div id="new_container">
+    <h1>Add a new Dish!</h1>
+    <form asp-action="Index" asp-controller="Home" method="get">
+        <input value="Home" type="submit">  
+    </form>
+    @model User
+    <form action="update/@Model.UserId" method="post">
+        <span asp-validation-for="Name"></span><br>
+        <label asp-for="Name"></label>
+        <input asp-for="Name" name="Name" value="@Model.Name"><br>
+
+        <span asp-validation-for="DishName"></span><br>
+        <label asp-for="DishName"></label>
+        <input asp-for="DishName" name="DishName" value="@Model.DishName"><br>
+
+        <span asp-validation-for="Calories"></span><br>
+        <label asp-for="Calories"></label>
+        <input asp-for="Calories" name="Calories" value="@Model.Calories"><br>
+        
+        <span asp-validation-for="Tastiness"></span><br>
+        <label asp-for="Tastiness"></label>
+        <select asp-for="Tastiness" name="Tastiness" value="@Model.Tastiness">
+            @for(int i=0;i<6;i++){
+                <option value=@i>@i</option>
+            }
+        </select><br>
+
+        <span asp-validation-for="Description"></span><br>
+        <label asp-for="Description"></label>
+        <input asp-for="Description" name="Description" value="@Model.Description"><br>
+
+        <input value="Edit Dish" type="submit">  
+    </form>
+</div>
