@@ -60,7 +60,7 @@ namespace ChefsDishes.Controllers
             if(ModelState.IsValid){
                 dbContext.Add(yourSurvey);
                 dbContext.SaveChanges();
-                return RedirectToAction("Dishes");
+                return Index_dishes();
             }else{
                 List<Chef> AllChefs = dbContext.Chef.ToList();
                 return View("NewDish",AllChefs);
