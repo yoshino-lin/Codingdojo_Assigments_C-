@@ -1,0 +1,25 @@
+﻿<div class="text-center">
+    <p><a href="/">Chefs</a>  |  Dishes</p>
+    <a href="/dishes/new">Add a Dish!</a>
+    <p>Yum, take a look at our tasty dishes!</p>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+            <th scope="col">Name</th>
+            <th scope="col">Chef</th>
+            <th scope="col">Tastiness</th>
+            <th scope="col">Calories</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach(var dish in Model){
+                <tr>
+                <th scope="row">@dish.DishName</th>
+                <td>@dish.Creator.FirstName @dish.Creator.LastName</td>
+                <td>@dish.Tastiness</td>
+                <td>@dish.Calories</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

@@ -1,8 +1,24 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
-}
-
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+﻿<div class="text-center">
+    <p>Chefs  |  <a href="dishes">Dishes</a></p>
+    <a href="new">Add a Chef!</a>
+    <p>Check out our roster of Chefs!</p>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+            <th scope="col">Name</th>
+            <th scope="col">Age</th>
+            <th scope="col"># of Dishes</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach(var each_chef in Model){
+                <tr>
+                <th scope="row">@each_chef.FirstName @each_chef.LastName</th>
+                @{var age = DateTime.Now.Year - each_chef.Birthday.Year;}
+                <td>@age</td>
+                <td>@each_chef.dishOfChef.Count</td>
+                </tr>
+            }
+        </tbody>
+    </table>
 </div>
