@@ -1,10 +1,10 @@
 using Microsoft.EntityFrameworkCore;
-using LoginAndRegistration.Models;
+using ChefsDishes.Models;
 namespace Context.Models
 {
     public class MyContext : DbContext
     {
         public MyContext(DbContextOptions options) : base(options) { }
-        public DbSet<User> Users {get;set;}
+        public DbSet<Chef> Chef {get;set;}
     }
 }
