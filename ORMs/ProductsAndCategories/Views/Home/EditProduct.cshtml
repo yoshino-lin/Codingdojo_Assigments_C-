@@ -1,14 +1,23 @@
 ﻿<div class="text-center">
-    <h1>@Model.Name</h1>
+    <h1>@ViewBag.the_product.Name</h1>
     <table>
         <td>
             <h1>Categories</h1>
-            @foreach(var productCategories in Model.ProductCategories){
+            @foreach(var productCategories in ViewBag.the_product.ProductCategories){
                 <p>@productCategories.Category.Name</p>
             }
         </td>
         <td>
             <h1>Add</h1>
+            @model Subscription
+            <form asp-action="Add_Category_to_Product" asp-controller="Home" method="post">
+                <select asp-for="CategoryId">
+                    @foreach(var each_category in ViewBag.All_Categories){
+                        <option value=@each_category.CategoryId>@each_category.Name</option>
+                    }
+                </select>
+                <input value="Add" type="submit">
+            </form>
         </td>
     </table>
 </div>

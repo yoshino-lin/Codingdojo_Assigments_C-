@@ -9,6 +9,13 @@
         </td>
         <td>
             <h1>Add</h1>
+
+                <select >
+                    @foreach(var product in ViewBag.New){
+                        <option value=@product.ProductId>@product.Name</option>
+                    }
+                </select>
+
         </td>
     </table>
 </div>

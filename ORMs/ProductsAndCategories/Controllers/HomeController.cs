@@ -57,8 +57,27 @@ namespace ProductsAndCategories.Controllers
                 .Include(product => product.ProductCategories)
                 .ThenInclude(sub => sub.Category)
                 .FirstOrDefault(product => product.ProductId == productId);
-            return View("EditProduct",the_product);
+            List<Category> All_Categories = dbContext.Categories.ToList();
+            ViewBag.All_Categories = All_Categories;
+            ViewBag.the_product = the_product;
+            return View("EditProduct");
         }
+        [HttpPost("/products/{productId}")]
+        public IActionResult Add_Category_to_Product(int productId,Subscription newrelation){
+            newrelation.ProductId=productId;
+            dbContext.Add(newrelation);
+            dbContext.SaveChanges();
+
+            Product the_product = dbContext.Products
+                .Include(product => product.ProductCategories)
+                .ThenInclude(sub => sub.Category)
+                .FirstOrDefault(product => product.ProductId == productId);
+            List<Category> All_Categories = dbContext.Categories.ToList();
+            ViewBag.All_Categories = All_Categories;
+            ViewBag.the_product = the_product;
+            return View("EditProduct");
+        }
+
         [HttpPost("/categories")]
         public IActionResult Create_Category(Category the_new_category){
             if(ModelState.IsValid){
@@ -81,7 +100,11 @@ namespace ProductsAndCategories.Controllers
                 .Include(category => category.CategoryProducts)
                 .ThenInclude(sub => sub.Product)
                 .FirstOrDefault(category => category.CategoryId == categoryId);
+
+            List<Product> All_product = dbContext.Products.ToList();
+            ViewBag.New = All_product;
             return View("EditCategory",the_category);
         }
+        
     }
 }
