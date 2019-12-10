@@ -1,0 +1,14 @@
+﻿<div class="text-center">
+    <h1>@Model.Name</h1>
+    <table>
+        <td>
+            <h1>Categories</h1>
+            @foreach(var each_cha in Model.CategoryProducts){
+                <p>@each_cha.Product.Name</p>
+            }
+        </td>
+        <td>
+            <h1>Add</h1>
+        </td>
+    </table>
+</div>

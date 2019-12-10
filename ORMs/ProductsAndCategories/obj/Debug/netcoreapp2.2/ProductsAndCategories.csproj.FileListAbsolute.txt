@@ -27,3 +27,5 @@ C:\Users\Administrator\Documents\GitHub\Codingdojo_Assigments_C_Sharp\ORMs\Produ
 C:\Users\Administrator\Documents\GitHub\Codingdojo_Assigments_C_Sharp\ORMs\ProductsAndCategories\obj\Debug\netcoreapp2.2\ProductsAndCategories.dll
 C:\Users\Administrator\Documents\GitHub\Codingdojo_Assigments_C_Sharp\ORMs\ProductsAndCategories\obj\Debug\netcoreapp2.2\ProductsAndCategories.pdb
 C:\Users\Administrator\Documents\GitHub\Codingdojo_Assigments_C_Sharp\ORMs\ProductsAndCategories\obj\Debug\netcoreapp2.2\ProductsAndCategories.csproj.CopyComplete
+C:\Users\Administrator\Documents\GitHub\Codingdojo_Assigments_C_Sharp\ORMs\ProductsAndCategories\obj\Debug\netcoreapp2.2\Razor\Views\Home\EditProduct.g.cshtml.cs
+C:\Users\Administrator\Documents\GitHub\Codingdojo_Assigments_C_Sharp\ORMs\ProductsAndCategories\obj\Debug\netcoreapp2.2\Razor\Views\Home\EditCategory.g.cshtml.cs

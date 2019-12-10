@@ -28,6 +28,11 @@ namespace ProductsAndCategories.Controllers
         }
         [HttpGet("/categories")]
         public IActionResult Categories_Index(){
+            List<Category> All_category = dbContext.Categories
+                .Include(category => category.CategoryProducts)
+                .ThenInclude(sub => sub.Product)
+                .ToList();
+            ViewBag.Model = All_category;
             return View("Categories_Index");
         }
         [HttpPost("/products")]
@@ -45,6 +50,38 @@ namespace ProductsAndCategories.Controllers
                 ViewBag.Model = All_product;
                 return View("Index");
             }
+        }
+        [HttpGet("/products/{productId}")]
+        public IActionResult ProductEdit(int productId){
+            Product the_product = dbContext.Products
+                .Include(product => product.ProductCategories)
+                .ThenInclude(sub => sub.Category)
+                .FirstOrDefault(product => product.ProductId == productId);
+            return View("EditProduct",the_product);
+        }
+        [HttpPost("/categories")]
+        public IActionResult Create_Category(Category the_new_category){
+            if(ModelState.IsValid){
+                dbContext.Add(the_new_category);
+                dbContext.SaveChanges();
+                return RedirectToAction("Categories_Index");
+            }
+            else{
+                List<Category> All_category = dbContext.Categories
+                .Include(category => category.CategoryProducts)
+                .ThenInclude(sub => sub.Product)
+                .ToList();
+                ViewBag.Model = All_category;
+                return View("Categories_Index");
+            }
+        }
+        [HttpGet("/category/{categoryId}")]
+        public IActionResult CategoryEdit(int categoryId){
+            Category the_category = dbContext.Categories
+                .Include(category => category.CategoryProducts)
+                .ThenInclude(sub => sub.Product)
+                .FirstOrDefault(category => category.CategoryId == categoryId);
+            return View("EditCategory",the_category);
         }
     }
 }

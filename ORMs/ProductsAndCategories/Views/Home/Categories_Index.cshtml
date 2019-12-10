@@ -1,3 +1,21 @@
 ﻿<div class="text-center">
     <h1><a href="/products">Products</a>  |  Categories</h1>
+    <table>
+        <td>
+            <h1>New Category</h1>
+            @model Category
+            <form asp-action="Create_Category" asp-controller="Home" method="post">
+                <span asp-validation-for="Name"></span><br>
+                <label asp-for="Name"></label>
+                <input asp-for="Name"><br>
+                <input value="Create" type="submit"> 
+            </form>
+        </td>
+        <td>
+            <h1>Existing Categories</h1>
+            @foreach(var each_category in ViewBag.Model){
+                <a href="/category/@each_category.CategoryId">@each_category.Name</a><br>
+            }
+        </td>
+    </table>
 </div>

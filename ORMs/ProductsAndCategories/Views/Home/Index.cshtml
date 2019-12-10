@@ -2,6 +2,7 @@
     <h1>Products  |  <a href="/categories">Categories</a></h1>
     <table>
         <td>
+            <h1>New Product</h1>
             @model Product
             <form asp-action="Create_Product" asp-controller="Home" method="post">
                 <span asp-validation-for="Name"></span><br>
@@ -20,6 +21,7 @@
             </form>
         </td>
         <td>
+            <h1>Existing Products</h1>
             @foreach(var each_product in ViewBag.Model){
                 <a href="/products/@each_product.ProductId">@each_product.Name</a><br>
             }
