@@ -1,5 +1,5 @@
 using Microsoft.EntityFrameworkCore;
-using ChefsDishes.Models;
+using BankAccounts.Models;
 namespace Context.Models
 {
     public class MyContext : DbContext

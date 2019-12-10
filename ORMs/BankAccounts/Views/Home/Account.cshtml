@@ -1,0 +1,18 @@
+﻿<h1>Welcome, @ViewBag.Name</h1>
+<form action="logout" method="post">
+    <input value="Logout" type="submit">
+</form>
+<p>Current balance @Math.Round(ViewBag.Balance,2)</p>
+@model Transaction
+<form asp-action="makeTransaction" asp-controller="Home" method="post">
+    <span asp-validation-for="Amount"></span><br>
+    <label asp-for="Amount"></label>
+    <input asp-for="Amount" value="0"><br>
+    <input value="Submit" type="submit"> 
+</form>
+
+@foreach(var record in ViewBag.Records){
+    <p>@String.Format("{0:C2}", record.Amount)</p>
+    <p>@record.CreatedAt</p>
+}
+
