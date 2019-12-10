@@ -11,6 +11,7 @@
         "mydb",
         "netstandard",
         "newtonsoft",
+        "sameline",
         "use"
     ],
     "cSpell.ignoreWords": [
