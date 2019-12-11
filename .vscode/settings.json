@@ -7,11 +7,13 @@
         "inital",
         "jeffersons",
         "json",
+        "linkstyle",
         "myd",
         "mydb",
         "netstandard",
         "newtonsoft",
         "sameline",
+        "unrsvp",
         "use"
     ],
     "cSpell.ignoreWords": [
