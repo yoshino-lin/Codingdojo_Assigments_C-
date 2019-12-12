@@ -127,15 +127,17 @@ namespace WeddingPlanner.Controllers
         [HttpGet("rsvp/{weddingId}")]
         public IActionResult RSVP(int weddingId){
             if(HttpContext.Session.GetInt32("UserId")!=null){
-                Subscription IsSubscription = dbContext.Subscriptions
-                    .Where(u => u.WeddingId == weddingId)
-                    .FirstOrDefault(u => u.UserId == HttpContext.Session.GetInt32("UserId"));
-                if(IsSubscription == null){
-                    Subscription newSubscription = new Subscription();
-                    newSubscription.UserId = (int)HttpContext.Session.GetInt32("UserId");
-                    newSubscription.WeddingId = weddingId;
-                    dbContext.Add(newSubscription);
-                    dbContext.SaveChanges();
+                if(dbContext.Weddings.Any(u => u.WeddingId == weddingId)){
+                    Subscription IsSubscription = dbContext.Subscriptions
+                        .Where(u => u.WeddingId == weddingId)
+                        .FirstOrDefault(u => u.UserId == HttpContext.Session.GetInt32("UserId"));
+                    if(IsSubscription == null){
+                        Subscription newSubscription = new Subscription();
+                        newSubscription.UserId = (int)HttpContext.Session.GetInt32("UserId");
+                        newSubscription.WeddingId = weddingId;
+                        dbContext.Add(newSubscription);
+                        dbContext.SaveChanges();
+                    }
                 }
                 return RedirectToAction("MainMenu");
             }else{
@@ -165,9 +167,11 @@ namespace WeddingPlanner.Controllers
                 Wedding this_wedding = dbContext.Weddings
                     .Include(wedding => wedding.Creator)
                     .FirstOrDefault(wedding => wedding.WeddingId == weddingId);
-                if(this_wedding.Creator.UserId == HttpContext.Session.GetInt32("UserId")){
-                    dbContext.Remove(this_wedding);
-                    dbContext.SaveChanges();
+                if(this_wedding != null){
+                    if(this_wedding.Creator.UserId == HttpContext.Session.GetInt32("UserId")){
+                        dbContext.Remove(this_wedding);
+                        dbContext.SaveChanges();
+                    }
                 }
                 return RedirectToAction("MainMenu");
             }else{
