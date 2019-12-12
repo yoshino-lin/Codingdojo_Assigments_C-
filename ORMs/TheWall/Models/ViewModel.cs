@@ -41,6 +41,18 @@ namespace TheWall.Models{
         public DateTime CreatedAt {get;set;} = DateTime.Now;
         public DateTime UpdatedAt {get;set;} = DateTime.Now;
     }
+        public class LoginUser{
+        [Required]
+        [EmailAddress]
+        [Display(Name = "Email Address:")]
+        public string Email {get; set;}
+        
+        [Required]
+        [Display(Name = "Password:")]
+        [DataType(DataType.Password)]
+        public string Password { get; set; }
+    }
+    
     public class Message{
         [Key]
         public int MessageId { get; set; }

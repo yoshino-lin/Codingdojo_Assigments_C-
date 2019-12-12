@@ -5,5 +5,6 @@ namespace TheWall.Models{
         public User User {get;set;}
         public Message Message {get;set;}
         public Comment Comment {get;set;}
+        public LoginUser LoginUser {get;set;}
     }
 }

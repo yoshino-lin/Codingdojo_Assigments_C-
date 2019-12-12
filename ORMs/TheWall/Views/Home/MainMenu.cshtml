@@ -1,0 +1,25 @@
+﻿@model InputChecker
+<a href="/logout">Logout</a>
+<h1>Welcome @ViewBag.Model_user.FirstName @ViewBag.Model_user.LastName</h1>
+<p>Post a message</p>
+<form asp-action="CreateMessage" asp-controller="Home" method="post">
+    <span asp-validation-for="Message.Message_TEXT"></span><br>
+    <label asp-for="Message.Message_TEXT"></label>
+    <input asp-for="Message.Message_TEXT"><br>
+    <input value="Post a message" type="submit"> 
+</form>
+@foreach(var each_message in ViewBag.Model_Messages){
+    <h3>@each_message.Creator.FirstName  @each_message.Creator.LastName - @each_message.CreatedAt</h3>
+    <p>@each_message.Message_TEXT</p>
+    @foreach(var commentofthismessage in each_message.MessageComments){
+        <p>@commentofthismessage.Creator.FirstName  @commentofthismessage.Creator.LastName - @commentofthismessage.CreatedAt</p>
+        <p>@commentofthismessage.Comment_TEXT</p>
+    }
+    <form asp-action="CreateComment" asp-controller="Home" method="post">
+        <span asp-validation-for="Comment.Comment_TEXT"></span><br>
+        <label asp-for="Comment.Comment_TEXT"></label>
+        <input asp-for="Comment.Comment_TEXT"><br>
+        <input asp-for="Comment.MessageId" type="hidden" value="@each_message.MessageId">
+        <input value="Post a Comment" type="submit"> 
+    </form>
+}
