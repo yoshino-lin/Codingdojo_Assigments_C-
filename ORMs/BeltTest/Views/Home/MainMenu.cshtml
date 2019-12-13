@@ -1,31 +1,45 @@
-﻿<h1>Hello, @Model.User.FirstName @Model.User.LastName</h1>
-<a href="/logout">Logout</a>
+﻿<h1>Dojo Activity Center                                        Welcome, @Model.User.Name   <a href="/logout">Logout</a></h1>
 <table class="table table-striped">
     <thead>
         <tr>
-        <th scope="col">Wedding</th>
-        <th scope="col">Date</th>
-        <th scope="col">Guest</th>
-        <th scope="col">Action</th>
+        <th scope="col">Activity</th>
+        <th scope="col">Date and Time</th>
+        <th scope="col">Duration</th>
+        <th scope="col">Event Coordinator</th>
+        <th scope="col">No. of Participants</th>
+        <th scope="col">Actions</th>
         </tr>
     </thead>
     <tbody>
-        @foreach(Wedding eachWedding in Model.Weddings){
+        @foreach(Activity eachActivity in Model.Activities){
+            if(DateTime.Compare((DateTime)eachActivity.Date, DateTime.Now)>0){
             <tr>
-            <th scope="row"><a href="/display/@eachWedding.WeddingId">@eachWedding.Wedder1 & @eachWedding.Wedder2</a></th>
-            <td>@eachWedding.Date.ToString("MMM d,  yyyy", new System.Globalization.CultureInfo ("en-us"))</td>
-            <td>@eachWedding.GuestsOfWedding.Count()</td>
-            @if(eachWedding.Creator.UserId == Model.User.UserId){
-                <td><a href="/delete/@eachWedding.WeddingId">Delete</a></td>
-            }else{
-                if(eachWedding.GuestsOfWedding.Any(p => p.User.UserId == Model.User.UserId)){
-                    <td><a href="/unrsvp/@eachWedding.WeddingId">US-RSVP</a></td>
+            <th scope="row"><a href="/activity/@eachActivity.ActivityId">@eachActivity.Title</a></th>
+            <td>@eachActivity.Date.ToString("M/d") at @eachActivity.Time.ToString("t", new System.Globalization.CultureInfo ("en-us"))</td>
+            <td>
+                @if(eachActivity.DurationType==1){
+                    <p>@eachActivity.Duration Minutes</p>
+                }else if(eachActivity.DurationType==2){
+                    <p>@eachActivity.Duration Hours</p>
                 }else{
-                    <td><a href="/rsvp/@eachWedding.WeddingId">RSVP</a></td>
+                    <p>@eachActivity.Duration Days</p>
+                }
+            </td>
+            <td>@eachActivity.Creator.Name</td>
+            <td>@eachActivity.GuestsOfActivity.Count()</td>
+            @if(eachActivity.Creator.UserId == Model.User.UserId){
+                <td><a href="/delete/@eachActivity.ActivityId">Delete</a></td>
+            }else{
+                if(eachActivity.GuestsOfActivity.Any(p => p.User.UserId == Model.User.UserId)){
+                    <td><a href="/unrsvp/@eachActivity.ActivityId">Leave</a></td>
+                }else{
+                    <td><a href="/rsvp/@eachActivity.ActivityId">Join</a></td>
                 }
             }
             </tr>
+            }
+            
         }
     </tbody>
 </table>
-<a href="/new">New Wedding</a>
+<a href="/new">Add New Activity</a>

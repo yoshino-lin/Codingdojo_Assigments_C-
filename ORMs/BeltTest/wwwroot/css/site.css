@@ -68,3 +68,6 @@ body {
 span{
   color: red;
 }
+.sl{
+  display: inline-block;
+}

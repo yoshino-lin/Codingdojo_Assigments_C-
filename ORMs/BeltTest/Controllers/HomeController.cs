@@ -8,15 +8,24 @@ using BeltTest.Models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
+using System.Text.RegularExpressions;
 
-namespace WeddingPlanner.Controllers
+namespace BeltTest.Controllers
 {
     public class HomeController : Controller{
         private MyContext dbContext;
         public HomeController(MyContext context){dbContext = context;}
 
-
         [HttpGet("")]
+        public IActionResult LoginChecker(){
+            if(HttpContext.Session.GetInt32("UserId")==null){
+                return RedirectToAction("Index");
+            }else{
+                return RedirectToAction("MainMenu");
+            }
+        }
+
+        [HttpGet("signin")]
         public IActionResult Index(){
             if(HttpContext.Session.GetInt32("UserId")==null){
                 return View("Index");
@@ -25,21 +34,23 @@ namespace WeddingPlanner.Controllers
             }
         }
 
-        [HttpGet("Dashboard")]
+        [HttpGet("home")]
         public IActionResult MainMenu(){
             if(HttpContext.Session.GetInt32("UserId")==null){
                 return RedirectToAction("Index");
             }else{
-                List<Wedding> AllWedding = dbContext.Weddings
-                    .Include(wedding => wedding.Creator)
-                    .Include(wedding => wedding.GuestsOfWedding)
-                    .ToList();
-                User this_user = dbContext.Users
-                    .Include(wedding => wedding.WeddingsToGo)
-                    .FirstOrDefault(user => user.UserId == (int)HttpContext.Session.GetInt32("UserId"));
                 ViewWrapper ViewWrapper = new ViewWrapper();
-                ViewWrapper.Weddings = AllWedding;
-                ViewWrapper.User = this_user;
+                //所有活动
+                ViewWrapper.Activities = dbContext.Activities
+                    .OrderBy(prod => prod.Date)
+                    .Include(Activity => Activity.Creator)
+                    .Include(Activity => Activity.GuestsOfActivity)
+                    .ThenInclude(Activity => Activity.User)
+                    .ToList();
+                //登录的用户
+                ViewWrapper.User = dbContext.Users
+
+                    .FirstOrDefault(user => user.UserId == (int)HttpContext.Session.GetInt32("UserId"));
                 return View("MainMenu",ViewWrapper);
             }
         }
@@ -53,7 +64,7 @@ namespace WeddingPlanner.Controllers
             }
         }
 
-        [HttpGet("register/Dashboard")]
+        [HttpGet("register/home")]
         public IActionResult registerGoBack(){
             if(HttpContext.Session.GetInt32("UserId")==null){
                 return RedirectToAction("Index");
@@ -62,7 +73,7 @@ namespace WeddingPlanner.Controllers
             }
         }
 
-        [HttpGet("login/Dashboard")]
+        [HttpGet("login/home")]
         public IActionResult loginGoBack(){
             if(HttpContext.Session.GetInt32("UserId")==null){
                 return RedirectToAction("Index");
@@ -71,7 +82,7 @@ namespace WeddingPlanner.Controllers
             }
         }
 
-        [HttpPost("register/Dashboard")]
+        [HttpPost("register/home")]
         public IActionResult Registration(InputChecker Data_get){
             User the_user = Data_get.User;
             if(ModelState.IsValid){
@@ -79,20 +90,26 @@ namespace WeddingPlanner.Controllers
                     ModelState.AddModelError("User.Email", "Email already in use!");
                     return View("Index");
                 }else{
-                    PasswordHasher<User> Hasher = new PasswordHasher<User>();
-                    the_user.Password = Hasher.HashPassword(the_user, the_user.Password);
-                    dbContext.Add(the_user);
-                    dbContext.SaveChanges();
-                    User this_user = dbContext.Users.FirstOrDefault(user => user.Email == the_user.Email);
-                    HttpContext.Session.SetInt32("UserId", this_user.UserId);
-                    return RedirectToAction("MainMenu");
+                    if(Regex.IsMatch(the_user.Password, @"^(?=.*[A-Za-z])(?=.*\d)(?=.*[$@$!%*#?&])[A-Za-z\d$@$!%*#?&]{8,}$")){
+                        PasswordHasher<User> Hasher = new PasswordHasher<User>();
+                        the_user.Password = Hasher.HashPassword(the_user, the_user.Password);
+                        dbContext.Add(the_user);
+                        dbContext.SaveChanges();
+                        User this_user = dbContext.Users.FirstOrDefault(user => user.Email == the_user.Email);
+                        HttpContext.Session.SetInt32("UserId", this_user.UserId);
+                        return RedirectToAction("MainMenu");
+                    }else{
+                        ModelState.AddModelError("User.Password", "Must contain at least 1 number, letter, and a special character!");
+                        return View("Index");
+                    }
+                    
                 }
             }else{
                 return View("Index");
             }
         }
 
-        [HttpPost("login/Dashboard")]
+        [HttpPost("login/home")]
         public IActionResult LoginCheck(InputChecker Data_get){
             LoginUser userSubmission = Data_get.LoginUser;
             if(ModelState.IsValid){
@@ -115,12 +132,11 @@ namespace WeddingPlanner.Controllers
             }
         }
 
-        [HttpPost("new/Dashboard")]
-        public IActionResult CreateNewWedding(InputChecker Data_get){
-            Wedding the_wedding = Data_get.Wedding;
+        [HttpPost("new/home")]
+        public IActionResult CreateNewActivity(InputChecker Data_get){
             if(ModelState.IsValid){
-                the_wedding.UserId = (int)HttpContext.Session.GetInt32("UserId");
-                dbContext.Add(the_wedding);
+                Data_get.Activity.UserId = (int)HttpContext.Session.GetInt32("UserId");
+                dbContext.Add(Data_get.Activity);
                 dbContext.SaveChanges();
                 return RedirectToAction("MainMenu");
             }else{
@@ -128,31 +144,40 @@ namespace WeddingPlanner.Controllers
             }
         }
 
-        [HttpGet("display/{weddingId}")]
-        public IActionResult DisplayeWedding(int weddingId){
+        [HttpGet("activity/{ActivityId}")]
+        public IActionResult DisplayActivity(int ActivityId){
             if(HttpContext.Session.GetInt32("UserId")!=null){
-                Wedding this_wedding = dbContext.Weddings
-                    .Include(wedding => wedding.Creator)
-                    .Include(wedding => wedding.GuestsOfWedding)
+                ViewWrapper ViewWrapper = new ViewWrapper();
+                ViewWrapper.Activity = dbContext.Activities
+                    .Include(Activity => Activity.Creator)
+                    .Include(Activity => Activity.GuestsOfActivity)
                     .ThenInclude(sub => sub.User)
-                    .FirstOrDefault(wedding => wedding.WeddingId == weddingId);
-                return View("Display",this_wedding);
+                    .FirstOrDefault(Activity => Activity.ActivityId == ActivityId);
+                ViewWrapper.User = dbContext.Users
+                    .Include(Activity => Activity.ActivitiesToGo)
+                    .FirstOrDefault(user => user.UserId == (int)HttpContext.Session.GetInt32("UserId"));
+                ViewWrapper.Activities = dbContext.Activities
+                    .OrderBy(prod => prod.Date)
+                    .Include(Activity => Activity.Creator)
+                    .Include(Activity => Activity.GuestsOfActivity)
+                    .ToList();
+                return View("Display",ViewWrapper);
             }else{
                 return View("Index");
             }
         }
 
-        [HttpGet("rsvp/{weddingId}")]
-        public IActionResult RSVP(int weddingId){
+        [HttpGet("rsvp/{ActivityId}")]
+        public IActionResult RSVP(int ActivityId){
             if(HttpContext.Session.GetInt32("UserId")!=null){
-                if(dbContext.Weddings.Any(u => u.WeddingId == weddingId)){
+                if(dbContext.Activities.Any(u => u.ActivityId == ActivityId)){
                     Subscription IsSubscription = dbContext.Subscriptions
-                        .Where(u => u.WeddingId == weddingId)
+                        .Where(u => u.ActivityId == ActivityId)
                         .FirstOrDefault(u => u.UserId == HttpContext.Session.GetInt32("UserId"));
                     if(IsSubscription == null){
                         Subscription newSubscription = new Subscription();
                         newSubscription.UserId = (int)HttpContext.Session.GetInt32("UserId");
-                        newSubscription.WeddingId = weddingId;
+                        newSubscription.ActivityId = ActivityId;
                         dbContext.Add(newSubscription);
                         dbContext.SaveChanges();
                     }
@@ -163,11 +188,11 @@ namespace WeddingPlanner.Controllers
             }
         }
 
-        [HttpGet("unrsvp/{weddingId}")]
-        public IActionResult UNRSVP(int weddingId){
+        [HttpGet("unrsvp/{ActivityId}")]
+        public IActionResult UNRSVP(int ActivityId){
             if(HttpContext.Session.GetInt32("UserId")!=null){
                 Subscription the_newSubscription = dbContext.Subscriptions
-                    .Where(u => u.WeddingId == weddingId)
+                    .Where(u => u.ActivityId == ActivityId)
                     .FirstOrDefault(u => u.UserId == HttpContext.Session.GetInt32("UserId"));
                 if(the_newSubscription != null){
                     dbContext.Remove(the_newSubscription);
@@ -179,15 +204,16 @@ namespace WeddingPlanner.Controllers
             }
         }
         
-        [HttpGet("delete/{weddingId}")]
-        public IActionResult DeleteWedding(int weddingId){
+        [HttpGet("delete/{ActivityId}")]
+        public IActionResult DeleteActivity(int ActivityId){
             if(HttpContext.Session.GetInt32("UserId")!=null){
-                Wedding this_wedding = dbContext.Weddings
-                    .Include(wedding => wedding.Creator)
-                    .FirstOrDefault(wedding => wedding.WeddingId == weddingId);
-                if(this_wedding != null){
-                    if(this_wedding.Creator.UserId == HttpContext.Session.GetInt32("UserId")){
-                        dbContext.Remove(this_wedding);
+                ViewWrapper ViewWrapper = new ViewWrapper();
+                ViewWrapper.Activity = dbContext.Activities
+                    .Include(Activity => Activity.Creator)
+                    .FirstOrDefault(Activity => Activity.ActivityId == ActivityId);
+                if(ViewWrapper.Activity != null){
+                    if(ViewWrapper.Activity.Creator.UserId == HttpContext.Session.GetInt32("UserId")){
+                        dbContext.Remove(ViewWrapper.Activity);
                         dbContext.SaveChanges();
                     }
                 }

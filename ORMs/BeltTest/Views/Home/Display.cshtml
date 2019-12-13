@@ -1,11 +1,24 @@
 ﻿<div>
-    <h1>@Model.Wedder1 and @Model.Wedder2's Wedding</h1>
-    <a href="/Dashboard">Dashboard</a>
-    <a href="/logout">Logout</a>
-    <h2>Date: @Model.Date</h2>
-    <br>
-    <h2>Guests</h2>
-    @foreach(var Guest in Model.GuestsOfWedding){
-        <p>@Guest.User.FirstName @Guest.User.LastName</p>
+    <h1>Dojo Activity Center <a href="/home">Home</a>  <a href="/logout">Logout</a></h1>
+    @foreach(Activity eachActivity in Model.Activities){
+        if(eachActivity.ActivityId == Model.Activity.ActivityId){
+            if(eachActivity.Creator.UserId == Model.User.UserId){
+                <td><a href="/delete/@eachActivity.ActivityId">Delete</a></td>
+            }else{
+                if(eachActivity.GuestsOfActivity.Any(p => p.User.UserId == Model.User.UserId)){
+                    <td><a href="/unrsvp/@eachActivity.ActivityId">Leave</a></td>
+                }else{
+                    <td><a href="/rsvp/@eachActivity.ActivityId">Join</a></td>
+                }
+            }
+        }
+    }
+    <h1>@Model.Activity.Title</h1>
+    <p>Event Coordinator: @Model.Activity.Creator.Name</p>
+    <p>Description:</p>
+    <p>@Model.Activity.Description</p>
+    <p>Participants</p>
+    @foreach(var guest in Model.Activity.GuestsOfActivity){
+        <p>@guest.User.Name</p>
     }
 </div>

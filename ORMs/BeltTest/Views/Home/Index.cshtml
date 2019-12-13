@@ -5,14 +5,9 @@
         <form asp-action="Registration" asp-controller="Home" method="post" class="displayInOneLine">
             <table>
                 <tr>
-                    <td><label asp-for="User.FirstName"></label><br>
-                    <span asp-validation-for="User.FirstName"></span></td>
-                    <td><input asp-for="User.FirstName"></td>
-                </tr>
-                <tr>
-                    <td><label asp-for="User.LastName"></label><br>
-                    <span asp-validation-for="User.LastName"></span></td>
-                    <td><input asp-for="User.LastName"></td>
+                    <td><label asp-for="User.Name"></label><br>
+                    <span asp-validation-for="User.Name"></span></td>
+                    <td><input asp-for="User.Name"></td>
                 </tr>
                 <tr>
                     <td><label asp-for="User.Email"></label><br>

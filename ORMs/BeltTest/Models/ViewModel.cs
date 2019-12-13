@@ -8,17 +8,12 @@ namespace BeltTest.Models{
         [Key]
         public int UserId { get; set; }
 
-        [Required(ErrorMessage="First Name is Required!")]
+        [Required(ErrorMessage="Name is Required!")]
         [MinLength(2)]
-        [Display(Name = "First Name:")] 
-        public string FirstName { get; set; }
+        [Display(Name = "Name:")] 
+        public string Name { get; set; }
 
-        [Required]
-        [MinLength(2)]
-        [Display(Name = "Last Name:")]
-        public string LastName { get; set; }
-
-        [Required]
+        [Required(ErrorMessage="Email is Required!")]
         [EmailAddress]
         [Display(Name = "Email:")]
         public string Email { get; set; }
@@ -35,22 +30,18 @@ namespace BeltTest.Models{
         [Display(Name = "Confirm Password:")]
         public string Confirm {get;set;}
 
-        public List<Wedding> CreatedWeddings {get;set;}
+        public List<Activity> CreatedActivities {get;set;}
 
-        public List<Subscription> WeddingsToGo { get; set; }
+        public List<Subscription> ActivitiesToGo { get; set; }
 
     }
-    public class Wedding{
+    public class Activity{
         [Key]
-        public int WeddingId { get; set; }
+        public int ActivityId { get; set; }
 
         [Required]
-        [Display(Name = "Wedder One:")]
-        public string Wedder1 {get; set;}
-
-        [Required]
-        [Display(Name = "Wedder Two:")]
-        public string Wedder2 {get; set;}
+        [Display(Name = "Title:")]
+        public string Title {get; set;}
 
         [Required]
         [FutureDate]
@@ -59,13 +50,27 @@ namespace BeltTest.Models{
         public DateTime Date {get; set;}
 
         [Required]
-        [Display(Name = "Wedding Address:")]
-        public string Address {get; set;}
+        [DataType(DataType.Time)]
+        [Display(Name = "Time:")]
+        public DateTime Time {get; set;}
+
+        [Required]
+        [Range(0,99999999999)]
+        [Display(Name = "Duration:")]
+        public int Duration {get; set;}
+
+        [Required]
+        [Range(1,3, ErrorMessage="You know change code on html will not work, right?")]
+        public int DurationType {get; set;}
+
+        [Required]
+        [Display(Name = "Description:")]
+        public string Description {get; set;}
 
         public int UserId {get;set;}
         public User Creator {get;set;}
         
-        public List<Subscription> GuestsOfWedding { get; set; }
+        public List<Subscription> GuestsOfActivity { get; set; }
 
         public DateTime CreatedAt {get;set;} = DateTime.Now;
         public DateTime UpdatedAt {get;set;} = DateTime.Now;
@@ -84,16 +89,16 @@ namespace BeltTest.Models{
     public class Subscription{
         public int SubscriptionId { get; set; }
         public int UserId { get; set; }
-        public int WeddingId { get; set; }
+        public int ActivityId { get; set; }
         public User User { get; set; }
-        public Wedding Wedding { get; set; }
+        public Activity Activity { get; set; }
     }
 
     public class ViewWrapper{
         public List<User> Users {get;set;}
-        public List<Wedding> Weddings { get; set; }
+        public List<Activity> Activities { get; set; }
         public User User { get; set; }
-        public Wedding Wedding { get; set; }
+        public Activity Activity { get; set; }
     }
 
     public class PastDateAttribute : ValidationAttribute{
