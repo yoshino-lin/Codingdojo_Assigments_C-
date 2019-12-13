@@ -54,3 +54,17 @@ body {
   height: 60px;
   line-height: 60px; /* Vertically center the text there */
 }
+#Index{
+  margin-top: 100px;
+}
+#Registration{
+  position: absolute;
+  
+}
+#LoginCheck{
+  position: absolute;
+  margin-left: 600px;
+}
+span{
+  color: red;
+}

@@ -1,4 +1,4 @@
-﻿<h1>Welcome to the Wedding Planner</h1>
+﻿<h1>Hello, @Model.User.FirstName @Model.User.LastName</h1>
 <a href="/logout">Logout</a>
 <table class="table table-striped">
     <thead>
@@ -13,7 +13,7 @@
         @foreach(Wedding eachWedding in Model.Weddings){
             <tr>
             <th scope="row"><a href="/display/@eachWedding.WeddingId">@eachWedding.Wedder1 & @eachWedding.Wedder2</a></th>
-            <td>@eachWedding.Date</td>
+            <td>@eachWedding.Date.ToString("MMM d,  yyyy", new System.Globalization.CultureInfo ("en-us"))</td>
             <td>@eachWedding.GuestsOfWedding.Count()</td>
             @if(eachWedding.Creator.UserId == Model.User.UserId){
                 <td><a href="/delete/@eachWedding.WeddingId">Delete</a></td>

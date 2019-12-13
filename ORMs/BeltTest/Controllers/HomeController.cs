@@ -53,6 +53,24 @@ namespace WeddingPlanner.Controllers
             }
         }
 
+        [HttpGet("register/Dashboard")]
+        public IActionResult registerGoBack(){
+            if(HttpContext.Session.GetInt32("UserId")==null){
+                return RedirectToAction("Index");
+            }else{
+                return RedirectToAction("MainMenu");
+            }
+        }
+
+        [HttpGet("login/Dashboard")]
+        public IActionResult loginGoBack(){
+            if(HttpContext.Session.GetInt32("UserId")==null){
+                return RedirectToAction("Index");
+            }else{
+                return RedirectToAction("MainMenu");
+            }
+        }
+
         [HttpPost("register/Dashboard")]
         public IActionResult Registration(InputChecker Data_get){
             User the_user = Data_get.User;
