@@ -1,0 +1,41 @@
+﻿<div>
+    @model InputChecker
+    <h1>Register</h1>
+    <form asp-action="Registration" asp-controller="Home" method="post">
+        <span asp-validation-for="User.FirstName"></span><br>
+        <label asp-for="User.FirstName"></label>
+        <input asp-for="User.FirstName"><br>
+
+        <span asp-validation-for="User.LastName"></span><br>
+        <label asp-for="User.LastName"></label>
+        <input asp-for="User.LastName"><br>
+        
+        <span asp-validation-for="User.Email"></span><br>
+        <label asp-for="User.Email"></label>
+        <input asp-for="User.Email"><br>
+
+        <span asp-validation-for="User.Password"></span><br>
+        <label asp-for="User.Password"></label>
+        <input asp-for="User.Password"><br>
+
+        <span asp-validation-for="User.Confirm"></span><br>
+        <label asp-for="User.Confirm"></label>
+        <input asp-for="User.Confirm"><br>
+
+        <input value="Sign Up Now" type="submit"> 
+    </form>
+</div>
+<div>
+    <h1>Login</h1>
+    <form asp-action="LoginCheck" asp-controller="Home" method="post">
+        <span asp-validation-for="LoginUser.Email"></span><br>
+        <label asp-for="LoginUser.Email"></label>
+        <input asp-for="LoginUser.Email"><br>
+
+        <span asp-validation-for="LoginUser.Password"></span><br>
+        <label asp-for="LoginUser.Password"></label>
+        <input asp-for="LoginUser.Password"><br>
+
+        <input value="Login Now" type="submit"> 
+    </form>
+</div>

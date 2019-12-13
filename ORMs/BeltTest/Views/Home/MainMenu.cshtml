@@ -1,0 +1,31 @@
+﻿<h1>Welcome to the Wedding Planner</h1>
+<a href="/logout">Logout</a>
+<table class="table table-striped">
+    <thead>
+        <tr>
+        <th scope="col">Wedding</th>
+        <th scope="col">Date</th>
+        <th scope="col">Guest</th>
+        <th scope="col">Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach(Wedding eachWedding in Model.Weddings){
+            <tr>
+            <th scope="row"><a href="/display/@eachWedding.WeddingId">@eachWedding.Wedder1 & @eachWedding.Wedder2</a></th>
+            <td>@eachWedding.Date</td>
+            <td>@eachWedding.GuestsOfWedding.Count()</td>
+            @if(eachWedding.Creator.UserId == Model.User.UserId){
+                <td><a href="/delete/@eachWedding.WeddingId">Delete</a></td>
+            }else{
+                if(eachWedding.GuestsOfWedding.Any(p => p.User.UserId == Model.User.UserId)){
+                    <td><a href="/unrsvp/@eachWedding.WeddingId">US-RSVP</a></td>
+                }else{
+                    <td><a href="/rsvp/@eachWedding.WeddingId">RSVP</a></td>
+                }
+            }
+            </tr>
+        }
+    </tbody>
+</table>
+<a href="/new">New Wedding</a>

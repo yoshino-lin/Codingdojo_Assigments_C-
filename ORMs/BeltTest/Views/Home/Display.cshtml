@@ -1,0 +1,11 @@
+﻿<div>
+    <h1>@Model.Wedder1 and @Model.Wedder2's Wedding</h1>
+    <a href="/Dashboard">Dashboard</a>
+    <a href="/logout">Logout</a>
+    <h2>Date: @Model.Date</h2>
+    <br>
+    <h2>Guests</h2>
+    @foreach(var Guest in Model.GuestsOfWedding){
+        <p>@Guest.User.FirstName @Guest.User.LastName</p>
+    }
+</div>

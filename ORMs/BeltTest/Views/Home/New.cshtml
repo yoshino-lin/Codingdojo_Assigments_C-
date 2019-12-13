@@ -1,0 +1,25 @@
+﻿<div>
+    @model InputChecker
+    <h1>Plane Your Wedding</h1>
+    <a href="/Dashboard">Dashboard</a>
+    <a href="/logout">Logout</a>
+    <form asp-action="CreateNewWedding" asp-controller="Home" method="post">
+        <span asp-validation-for="Wedding.Wedder1"></span><br>
+        <label asp-for="Wedding.Wedder1"></label>
+        <input asp-for="Wedding.Wedder1"><br>
+
+        <span asp-validation-for="Wedding.Wedder2"></span><br>
+        <label asp-for="Wedding.Wedder2"></label>
+        <input asp-for="Wedding.Wedder2"><br>
+
+        <span asp-validation-for="Wedding.Date"></span><br>
+        <label asp-for="Wedding.Date"></label>
+        <input asp-for="Wedding.Date"><br>
+
+        <span asp-validation-for="Wedding.Address"></span><br>
+        <label asp-for="Wedding.Address"></label>
+        <input asp-for="Wedding.Address"><br>
+
+        <input value="Create" type="submit"> 
+    </form>
+</div>
